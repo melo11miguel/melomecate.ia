@@ -1,0 +1,14 @@
+[Unit]
+Description=melomecate.ia FastAPI Backend Service
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/melomecate.ia
+ExecStart=/home/ubuntu/melomecate.ia/.venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

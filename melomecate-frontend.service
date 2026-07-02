@@ -1,0 +1,13 @@
+[Unit]
+Description=melomecate.ia Streamlit Frontend Service
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/melomecate.ia
+ExecStart=/home/ubuntu/melomecate.ia/.venv/bin/python -m streamlit run app_streamlit.py --server.port 8501 --server.address 127.0.0.1
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
